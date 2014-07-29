@@ -20,6 +20,8 @@ get — creates getters
 prop — create object properties (various of shortcuts)
 
 object/each — for each on objects
+object/filter — filter on objects
+object/map — map on objects
 ```
 
 ## license
