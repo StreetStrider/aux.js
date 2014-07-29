@@ -2,16 +2,23 @@
 Idiomatic JavaScript.
 
 ## what in
+Mostly, functools and useful shortcuts.
 ```
+partial — creates function partials
+constrain — partial with placeholders
+limit — limits function to only range of its args
+
+noop — does nothing, return undefined
+nothing — does nothing, return null
 constant — returns constant
 identity — returns first argument
-limit — limits function to only range of its args
-noop — does nothing, return undefined
+
+predicate — returns boolean values on expressions (various functions)
 not — inverts function boolean result value
-nothing — does nothing, return null
-partial — creates function partials
-predicate — returns boolean values on expressions
-prop — create object properties
+
+get — creates getters
+prop — create object properties (various of shortcuts)
+each — for each on objects
 ```
 
 ## license
