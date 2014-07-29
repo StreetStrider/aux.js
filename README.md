@@ -1,7 +1,7 @@
 # aux.js
 Idiomatic JavaScript.
 
-# what in
+## what in
 ```
 constant — returns constant
 identity — returns first argument
