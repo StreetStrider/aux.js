@@ -13,3 +13,6 @@ partial — creates function partials
 predicate — returns boolean values on expressions
 prop — create object properties
 ```
+
+## license
+MIT. Copyright © 2014 StreetStrider.
