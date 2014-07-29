@@ -18,7 +18,8 @@ not — inverts function boolean result value
 
 get — creates getters
 prop — create object properties (various of shortcuts)
-each — for each on objects
+
+object/each — for each on objects
 ```
 
 ## license

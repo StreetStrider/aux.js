@@ -17,4 +17,4 @@ aux.not = require('./not');
 
 aux.get = require('./get');
 aux.prop = require('./prop');
-aux.each = require('./each');
+aux.each = require('./object/each');
