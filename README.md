@@ -1,8 +1,35 @@
 # aux.js
 Idiomatic JavaScript.
 
-## what in
+## examples
+### expr
+```javascript
+[1, 2, 3, 4, 5].map(expr('2 * @'));
+// ↳ [ 2, 4, 6, 8, 10 ]
 
+[3, 7, 5].reduce(expr('@1 + @2'));
+// ↳ 15
+```
+
+### partials
+```javascript
+// log iterations with prefix
+['a', 'b', 'c'].forEach(partial(console.log, 'value:'));
+
+// parse decimal numbers
+[ '1', '2', '3' ].map(constrain(constrain(parseInt, _, 10, _)));
+```
+
+### objects
+```javascript
+map({x:2, y: 3, z: 4}, constrain(Math.pow, constrain, 2));
+// ↳ { x: 4, y: 9, z: 16 }
+
+filter({yes: true, no: 0, ye: 1, nah: ''}, Boolean);
+// ↳ { yes: true, ye: 1 }
+```
+
+## what in
 ```
 expr: compact functional expression constructor
 expr — for creating expressions
