@@ -3,12 +3,12 @@
 
 module.exports = function expr (expr)
 {
-	expr = expr.split('%%');
+	expr = expr.split('@@');
 
 	expr = expr.map(replN);
 	expr = expr.map(repl);
 
-	expr = expr.join('%');
+	expr = expr.join('@');
 	expr = 'return '+ expr;
 
 	return new Function(expr);
@@ -16,7 +16,7 @@ module.exports = function expr (expr)
 
 function repl (str)
 {
-	return str.replace('%', 'arguments[0]');
+	return str.replace('@', 'arguments[0]');
 }
 
 function replN (str)
@@ -28,4 +28,4 @@ function replN (str)
 	});
 }
 
-var reg = /%(\d+)/;
+var reg = /@(\d+)/;
