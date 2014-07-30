@@ -19,3 +19,5 @@ aux.get = require('./get');
 aux.prop = require('./prop');
 
 aux.object = require('./object');
+
+aux.expr = require('./expr');
