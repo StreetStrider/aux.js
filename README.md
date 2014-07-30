@@ -55,6 +55,7 @@ object.map — map on objects
 
 array: tools for arrays, arguments, other array-like objects
 array.cat — concatenate arrays
+array.uniq — simple, order-safe uniq
 
 top-level primitives:
 noop — function, does nothing, return undefined
