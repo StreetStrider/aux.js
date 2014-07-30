@@ -28,7 +28,7 @@ function replN (str)
 	});
 }
 
-var reg = /@(\d+)/;
+var reg = /@(\d+)/g;
 
 expr.not  = expr('! @');
 expr.bool = expr('!! @');
