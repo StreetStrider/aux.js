@@ -1,7 +1,7 @@
 
 
 
-module.exports = function expr (expr)
+var expr = module.exports = function expr (expr)
 {
 	expr = expr.split('@@');
 
@@ -29,3 +29,11 @@ function replN (str)
 }
 
 var reg = /@(\d+)/;
+
+expr.not  = expr('! @');
+expr.bool = expr('!! @');
+
+expr.always = expr('true');
+expr.never  = expr('false');
+
+expr.nothing = expr('null');
