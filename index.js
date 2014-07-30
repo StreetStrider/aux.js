@@ -13,6 +13,8 @@ aux.identity = require('./identity');
 
 aux.not = require('./not');
 
+aux.cat = require('./cat');
+
 aux.get = require('./get');
 aux.prop = require('./prop');
 
