@@ -3,7 +3,7 @@
 
 var
 	log = console.log,
-	constrain = require('../constrain'),
+	constrain = require('../fn/constrain'),
 	_ = constrain._;
 
 
