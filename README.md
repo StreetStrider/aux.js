@@ -17,7 +17,7 @@ Idiomatic JavaScript.
 ['a', 'b', 'c'].forEach(partial(console.log, 'value:'));
 
 // parse decimal numbers
-[ '1', '2', '3' ].map(constrain(constrain(parseInt, _, 10, _)));
+[ '1', '2', '3' ].map(constrain(parseInt, _, 10, _));
 ```
 
 ### objects
