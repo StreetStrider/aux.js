@@ -22,7 +22,7 @@ Idiomatic JavaScript.
 
 ### objects
 ```javascript
-map({x:2, y: 3, z: 4}, constrain(Math.pow, constrain, 2));
+map({x:2, y: 3, z: 4}, constrain(Math.pow, _, 2));
 // ↳ { x: 4, y: 9, z: 16 }
 
 filter({yes: true, no: 0, ye: 1, nah: ''}, Boolean);
