@@ -3,6 +3,8 @@
 
 var expr = module.exports = function expr (expr)
 {
+	expr || (expr = '');
+
 	expr = expr.split('@@');
 
 	expr = expr.map(replN);
