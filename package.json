@@ -12,7 +12,7 @@
 
 	"scripts":
 	{
-		"test": "mocha test/array/"
+		"test": "mocha test/array/ test/fn/"
 	},
 
 	"devDependencies":
