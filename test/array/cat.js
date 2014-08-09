@@ -8,7 +8,7 @@ var
 	cat = require('../../array/cat');
 
 
-describe('cat', function ()
+describe('array/cat', function ()
 {
 
 	it('0 args → []', function ()

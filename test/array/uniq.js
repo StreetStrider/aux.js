@@ -5,7 +5,7 @@ var
 	eq = require('assert').deepEqual,
 	uniq = require('../../array/uniq');
 
-describe('uniq', function ()
+describe('array/uniq', function ()
 {
 	var testArray = [ 3, 5, 5, 4, 5, 7, 1];
 

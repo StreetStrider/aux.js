@@ -7,7 +7,7 @@ var
 	c = constrain,
 	_ = constrain._;
 
-describe('constrain', function ()
+describe('fn/constrain', function ()
 {
 	function binom (a, x, b)
 	{
