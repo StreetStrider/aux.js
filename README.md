@@ -58,6 +58,9 @@ array: tools for arrays, arguments, other array-like objects
 array.cat — concatenate arrays
 array.uniq — simple, order-safe uniq
 
+inst: instantiating objects for dual constructors
+inst — create object with constructor prototype
+
 top-level primitives:
 noop — function, does nothing, return undefined
 identity — function, returns first argument
