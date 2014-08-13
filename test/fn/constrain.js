@@ -29,6 +29,16 @@ describe('fn/constrain', function ()
 		eq(binom(11, 2, 3), constrain(binom, 11, 2)(3))
 	})
 
+	it('c(c(fn, a), b) → fn*(a, b)', function ()
+	{
+		var
+			c1 = constrain(binom, 11),
+			c2 = constrain(c1, 2);
+
+		eq(binom(11, 2, 3), c1(2, 3))
+		eq(binom(11, 2, 3), c2(3))
+	})
+
 	it('c(fn, a, b, c) → fn*(a, b, c)', function ()
 	{
 		eq(binom(11, 2, 3), constrain(binom, 11, 2, 3)())
