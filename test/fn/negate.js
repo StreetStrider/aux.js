@@ -3,9 +3,9 @@
 
 var
 	eq = require('assert').strictEqual,
-	not = require('../../fn/not');
+	negate = require('../../fn/negate');
 
-describe('fn/not', function ()
+describe('fn/negate', function ()
 {
 
 	it('inverts return value', function ()
@@ -14,8 +14,8 @@ describe('fn/not', function ()
 			pos    = function (n) { return n > 0 },
 			nonpos = function (n) { return n <= 0 },
 
-			inv_pos = not(pos),
-			inv_nonpos = not(nonpos);
+			inv_pos = negate(pos),
+			inv_nonpos = negate(nonpos);
 
 		/* - */
 		eq(true, pos(1))

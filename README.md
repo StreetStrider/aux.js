@@ -39,7 +39,7 @@ functools: works with other functions
 fn.partial — creates function partials
 fn.constrain — partial with placeholders (sparse partials)
 fn.limit — limits function to only range of its args
-fn.not — inverts function boolean result value
+fn.negate — inverts function boolean result value
 fn.get — creates getters
 
 prop: create object properties (various of shortcuts)
