@@ -16,7 +16,7 @@ module.exports = function limit (fn, start, stop)
 
 			args = slice.call(arguments, 0, stop);
 
-			return fn.apply(args);
+			return fn.apply(this, args);
 		}
 	}
 	else
@@ -29,7 +29,7 @@ module.exports = function limit (fn, start, stop)
 			prepend = Array(start);
 			args = prepend.concat(args);
 
-			return fn.apply(args);
+			return fn.apply(this, args);
 		}
 	}
 }
