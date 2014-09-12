@@ -24,3 +24,8 @@ prop.readonly = function readonly (object, key, value)
 {
 	def(object, key, { value: value });
 }
+
+prop.notenum = function notenum (object, key, value)
+{
+	def(object, key, { value: value, enumerable: false, writable: true, configurable: true });
+}

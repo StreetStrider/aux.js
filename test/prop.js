@@ -3,6 +3,7 @@
 
 var
 	desc = Object.getOwnPropertyDescriptor,
+	keys = Object.keys,
 
 	eq = require('assert').deepEqual,
 
@@ -117,6 +118,31 @@ describe('prop', function ()
 			enumerable: false,
 			configurable: false
 		})
+	})
+
+	it('notenum: not enumerable, but modifiable', function ()
+	{
+		var target = {};
+
+		prop.notenum(target, 'field', 17);
+
+		eq(target.field, 17);
+		eq(keys(target), []);
+
+		target.field = 11;
+		eq(target.field, 11);
+		eq(keys(target), []);
+
+		eq(desc(target, 'field'), {
+			value: 11,
+
+			writable: true,
+			enumerable: false,
+			configurable: true
+		});
+
+		delete target.field;
+		eq('field' in target, false);
 	})
 
 })
