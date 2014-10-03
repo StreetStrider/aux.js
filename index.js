@@ -7,6 +7,8 @@ aux.fn = require('./fn');
 
 aux.expr = require('./expr');
 
+aux.inst = require('./inst');
+
 aux.noop = require('./noop');
 aux.identity = require('./identity');
 
