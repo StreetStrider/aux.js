@@ -10,6 +10,7 @@ Idiomatic JavaScript.
 [3, 7, 5].reduce(expr('@1 + @2'));
 // ↳ 15
 ```
+[perf](http://jsperf.com/new-function-vs-function-expression)
 
 ### partials
 ```javascript
