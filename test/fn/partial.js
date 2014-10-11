@@ -17,22 +17,22 @@ describe('fn/partial', function ()
 		eq(summarize(11, 2, 3), partial(summarize)(11, 2, 3))
 	})
 
-	it('p(fn, a) → fn*(a)', function ()
+	it('p(fn, a) → fn*{a}', function ()
 	{
 		eq(summarize(11, 2, 3), partial(summarize, 11)(2, 3))
 	})
 
-	it('p(fn, a, b) → fn*(a, b)', function ()
+	it('p(fn, a, b) → fn*{a, b}', function ()
 	{
 		eq(summarize(11, 2, 3), partial(summarize, 11, 2)(3))
 	})
 
-	it('p(fn, a, b, c) → fn*(a, b, c)', function ()
+	it('p(fn, a, b, c) → fn*{a, b, c}', function ()
 	{
 		eq(summarize(11, 2, 3), partial(summarize, 11, 2, 3)())
 	})
 
-	it('p(p(fn, a), b) → fn*(a, b)', function ()
+	it('p(p(fn, a), b) → fn*{a, b}', function ()
 	{
 		var
 			p1 = partial(summarize, 1),

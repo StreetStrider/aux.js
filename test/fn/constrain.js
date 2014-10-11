@@ -19,17 +19,17 @@ describe('fn/constrain', function ()
 		eq(binom(11, 2, 3), constrain(binom)(11, 2, 3))
 	})
 
-	it('c(fn, a) → fn*(a)', function ()
+	it('c(fn, a) → fn*{a}', function ()
 	{
 		eq(binom(11, 2, 3), constrain(binom, 11)(2, 3))
 	})
 
-	it('c(fn, a, b) → fn*(a, b)', function ()
+	it('c(fn, a, b) → fn*{a, b}', function ()
 	{
 		eq(binom(11, 2, 3), constrain(binom, 11, 2)(3))
 	})
 
-	it('c(c(fn, a), b) → fn*(a, b)', function ()
+	it('c(c(fn, a), b) → fn*{a, b}', function ()
 	{
 		var
 			c1 = constrain(binom, 11),
@@ -39,7 +39,7 @@ describe('fn/constrain', function ()
 		eq(binom(11, 2, 3), c2(3))
 	})
 
-	it('c(fn, a, b, c) → fn*(a, b, c)', function ()
+	it('c(fn, a, b, c) → fn*{a, b, c}', function ()
 	{
 		eq(binom(11, 2, 3), constrain(binom, 11, 2, 3)())
 	})
@@ -62,19 +62,19 @@ describe('fn/constrain', function ()
 		eq(binom(11, 2, 3), constrain(binom, c, c, c)(11, 2, 3))
 	})
 
-	it('c(fn, _, b) → fn*(_, b)', function ()
+	it('c(fn, _, b) → fn*{_, b}', function ()
 	{
 		eq(binom(11, 2, 3), constrain(binom, _, 2)(11, 3))
 		eq(binom(11, 2, 3), constrain(binom, c, 2)(11, 3))
 	})
 
-	it('c(fn, a, _, c) → fn*(a, _, c)', function ()
+	it('c(fn, a, _, c) → fn*{a, _, c}', function ()
 	{
 		eq(binom(11, 2, 3), constrain(binom, 11, _, 3)(2))
 		eq(binom(11, 2, 3), constrain(binom, 11, c, 3)(2))
 	})
 
-	it('c(fn, _, _, c) → fn*(_, _, c)', function ()
+	it('c(fn, _, _, c) → fn*{_, _, c}', function ()
 	{
 		eq(binom(11, 2, 3), constrain(binom, _, _, 3)(11, 2))
 		eq(binom(11, 2, 3), constrain(binom, c, c, 3)(11, 2))
