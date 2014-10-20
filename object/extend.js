@@ -12,7 +12,8 @@ module.exports = function extend (dest, source /* source, source, ... */)
 	switch (arguments.length)
 	{
 	case 2:
-		return _extend(dest, source);
+		_extend(dest, source);
+		return dest;
 
 	case 1:
 		return dest;
