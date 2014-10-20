@@ -1,24 +1,33 @@
 # aux.js
 Idiomatic JavaScript.
 
+**aux.js** is very thin set of utilities. It does only things that cannot be done in simple manner in JS,
+and defer to native stuff in any other case.
+
 ## examples
-### expr
-```javascript
-[1, 2, 3, 4, 5].map(expr('2 * @'));
-// ↳ [ 2, 4, 6, 8, 10 ]
-
-[3, 7, 5].reduce(expr('@1 + @2'));
-// ↳ 15
-```
-[perf](http://jsperf.com/new-function-vs-function-expression)
-
 ### partials
 ```javascript
-// log iterations with prefix
+// partial — for partial application (like bind, but without `this`)
 ['a', 'b', 'c'].forEach(partial(console.log, 'value:'));
+// ↳ log iterations with prefix
 
-// parse decimal numbers
+// constrain — like partial, but allow placeholders in arguments
+// (sparse arguments, partialRight and other specific cases)
 [ '1', '2', '3' ].map(constrain(parseInt, _, 10, _));
+// ↳ parse decimal numbers
+```
+
+### arrays
+```javascript
+// concatenate arrays and non-arrays
+// better way to cast sequence of values to array
+// works with `arguments` object as well
+cat(1, [2, 3], 4);
+// ↳ [1, 2, 3, 4]
+
+// remove duplicates in array, preserves order
+uniq([4, 5, 5, 7]);
+// ↳ [4, 5, 7]
 ```
 
 ### objects
@@ -30,9 +39,21 @@ filter({yes: true, no: 0, ye: 1, nah: ''}, Boolean);
 // ↳ { yes: true, ye: 1 }
 ```
 
+### expr
+```javascript
+// very terse lambdas
+[1, 2, 3, 4, 5].map(expr('2 * @'));
+// ↳ [ 2, 4, 6, 8, 10 ]
+
+[3, 7, 5].reduce(expr('@1 + @2'));
+// ↳ 15
+```
+Suprisingly, works well:
+[perf](http://jsperf.com/new-function-vs-function-expression)
+
 ## what in
 ```
-expr: compact functional expression constructor
+expr: compact functional expression (lambdas) constructor
 expr — for creating expressions
 expr.bool, expr.not, expr.nothing, expr.always, expr.never — some predefined exprs
 
