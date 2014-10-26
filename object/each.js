@@ -1,21 +1,15 @@
 
 
 
-var keys = Object.keys;
+var
+	keys = Object.keys,
+	has  = Object.hasOwnProperty;
 
 module.exports = function each (object, fn)
 {
-	var it, L;
-
-	it = keys(object);
-	L  = it.length;
-
-	for (var i = 0; i < L; i++)
+	for (var key in object) if (has.call(object, key))
 	{
-		var key, v;
-
-		key = it[i];
-		v   = object[key];
+		var v = object[key];
 
 		fn(v, key, object);
 	}
