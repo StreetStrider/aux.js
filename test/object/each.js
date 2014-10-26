@@ -39,6 +39,32 @@ describe('object/each', function ()
 		eq(R, et)
 	})
 
+	it('iterates over own enumerable properties only', function ()
+	{
+		var
+			base = { a: 1, b: 2 },
+			src  = Object.create(base),
+
+			R = {}, et;
+
+		src.x = 3;
+		src.y = 4;
+		Object.defineProperty(src, 'z', { value: 5, enumerable: false });
+
+		et =
+		{
+			x: [ 3, src ],
+			y: [ 4, src ]
+		}
+
+		each(src, function (v, key, obj)
+		{
+			R[key] = [ v, obj ];
+		})
+
+		eq(R, et)
+	})
+
 	function noop () {}
 
 })
