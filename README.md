@@ -1,4 +1,4 @@
-# aux.js [![license|mit](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](MIT-LICENSE.txt) [![npm|aux.js](http://img.shields.io/badge/npm-aux.js-CB3837.svg?style=flat-square)](https://www.npmjs.org/package/aux.js) [![npm test|with mocha](http://img.shields.io/badge/npm%20test-with%20mocha-9E785A.svg?style=flat-square)](http://visionmedia.github.io/mocha/)
+# aux.js [![license|mit](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](MIT-LICENSE.txt) [![npm|aux.js](http://img.shields.io/badge/npm-aux.js-CB3837.svg?style=flat-square)](https://www.npmjs.org/package/aux.js) [![npm test|with mocha](http://img.shields.io/badge/npm%20test-with%20mocha-9E785A.svg?style=flat-square)](http://mochajs.org/)
 Idiomatic JavaScript.
 
 **aux.js** is very thin set of utilities. It does only things that cannot be done in simple manner in JS,
