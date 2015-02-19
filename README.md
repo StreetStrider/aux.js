@@ -63,6 +63,7 @@ fn.constrain — partial with placeholders (sparse partials)
 fn.negate — inverts function boolean result value
 fn.unary — limits function to first argument
 fn.get — creates getters
+fn.invoke - creates method invokers
 fn.method — late binding, binds key with function value to its object
 
 prop: create object properties (various of shortcuts)
