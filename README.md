@@ -77,6 +77,7 @@ object.each — for each on objects
 object.filter — filter on objects
 object.map — map on objects
 object.extend — merge objects
+object.keys — get not-enumerable keys and keys from prototype chain
 
 array: tools for arrays, arguments, other array-like objects
 array.cat — concatenate arrays

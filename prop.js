@@ -28,10 +28,10 @@ prop.getset = function getset (object, key, getter, setter)
 prop.value = function value (object, key, value /*, flag, flag, ... */)
 {
 	var
-		options = slice.call(arguments, 3),
+		flags = slice.call(arguments, 3),
 		descriptor = { value: value };
 
-	options.forEach(setup(descriptor));
+	flags.forEach(setup(descriptor));
 
 	def(object, key, descriptor);
 }
