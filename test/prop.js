@@ -238,14 +238,30 @@ describe('prop', function ()
 			})
 		})
 
+		it('noconfig: !configurable', function ()
+		{
+			var target = {};
+
+			prop.value(target, 'field', 17, 'noconfig');
+
+			eq(desc(target, 'field'), {
+				value: 17,
+
+				enumerable: false,
+				writable: false,
+				configurable: false
+			})
+		})
+
 		it('later flags overwrite previous', function ()
 		{
 			var target = {};
 
-			prop.value(target, 'enum', 17, 'notenum', 'enum');
-			prop.value(target, 'writable', 17, 'readonly', 'write');
+			prop.value(target, 'enumerable', 17, 'notenum', 'enum', 'notenum', 'enum');
+			prop.value(target, 'writable', 17, 'readonly', 'write', 'readonly', 'writable');
+			prop.value(target, 'configurable', 17, 'config', 'noconfig');
 
-			eq(desc(target, 'enum'), {
+			eq(desc(target, 'enumerable'), {
 				value: 17,
 
 				enumerable: true,
@@ -258,6 +274,14 @@ describe('prop', function ()
 
 				enumerable: false,
 				writable: true,
+				configurable: false
+			})
+
+			eq(desc(target, 'configurable'), {
+				value: 17,
+
+				enumerable: false,
+				writable: false,
 				configurable: false
 			})
 		})

@@ -64,6 +64,10 @@ function setup (descriptor)
 		case 'configurable':
 			descriptor.configurable = true;
 			return;
+
+		case 'noconfig':
+			descriptor.configurable = false;
+			return;
 		}
 	}
 }
