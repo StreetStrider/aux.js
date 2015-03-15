@@ -82,6 +82,7 @@ object.keys — get not-enumerable keys and keys from prototype chain
 array: tools for arrays, arguments, other array-like objects
 array.cat — concatenate arrays
 array.uniq — simple, order-safe uniq
+array.add, array.remove — {in,ex}clude elements of array as it was set
 
 inst: instantiating objects for dual constructors
 inst — create object with constructor prototype
