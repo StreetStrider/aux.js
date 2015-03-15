@@ -92,4 +92,4 @@ identity — function, returns first argument
 ```
 
 ## license
-MIT. Copyright © 2014 StreetStrider.
+MIT. Copyright © 2014 — 2015 StreetStrider.
