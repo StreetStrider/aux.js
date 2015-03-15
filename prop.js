@@ -1,9 +1,14 @@
 
 
 
-var prop = module.exports = {};
+var
+	slice = Array.prototype.slice,
+	def   = Object.defineProperty;
 
-var def = Object.defineProperty;
+var prop = module.exports = function prop (object, key, descriptor)
+{
+	return def(object, key, descriptor);
+}
 
 prop.get = function get (object, key, getter)
 {
@@ -20,12 +25,45 @@ prop.getset = function getset (object, key, getter, setter)
 	def(object, key, { get: getter, set: setter });
 }
 
-prop.readonly = function readonly (object, key, value)
+prop.value = function value (object, key, value /*, flag, flag, ... */)
 {
-	def(object, key, { value: value });
+	var
+		options = slice.call(arguments, 3),
+		descriptor = { value: value };
+
+	options.forEach(setup(descriptor));
+
+	def(object, key, descriptor);
 }
 
-prop.notenum = function notenum (object, key, value)
+function setup (descriptor)
 {
-	def(object, key, { value: value, enumerable: false, writable: true, configurable: true });
+	return function setuper (flag)
+	{
+		switch (flag)
+		{
+		case 'enum':
+		case 'enumerable':
+			descriptor.enumerable = true;
+			return;
+
+		case 'notenum':
+			descriptor.enumerable = false;
+			return;
+
+		case 'write':
+		case 'writable':
+			descriptor.writable = true;
+			return;
+
+		case 'readonly':
+			descriptor.writable = false;
+			return;
+
+		case 'config':
+		case 'configurable':
+			descriptor.configurable = true;
+			return;
+		}
+	}
 }

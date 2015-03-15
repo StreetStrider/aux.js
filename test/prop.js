@@ -100,49 +100,166 @@ describe('prop', function ()
 		})
 	})
 
-	it('readonly: constant, readonly value', function ()
+	describe('value: property by flags', function ()
 	{
-		var target = {};
 
-		prop.readonly(target, 'field', 17);
+		it('(no params): !enumerable, !writable, !configurable', function ()
+		{
+			var target = {};
 
-		eq(target.field, 17);
-		eq(target.field, 17);
-		target.field = 13;
-		eq(target.field, 17);
+			prop.value(target, 'field', 17);
 
-		eq(desc(target, 'field'), {
-			value: 17,
+			eq(desc(target, 'field'), {
+				value: 17,
 
-			writable: false,
-			enumerable: false,
-			configurable: false
+				enumerable: false,
+				writable: false,
+				configurable: false
+			})
+		})
+
+		it('enum, enumerable: enumerable', function ()
+		{
+			var target = {};
+
+			prop.value(target, 'f', 17, 'enum');
+			prop.value(target, 'field', 17, 'enumerable');
+
+			eq(desc(target, 'f'), {
+				value: 17,
+
+				enumerable: true,
+				writable: false,
+				configurable: false
+			})
+
+			eq(desc(target, 'field'), {
+				value: 17,
+
+				enumerable: true,
+				writable: false,
+				configurable: false
+			})
+		})
+
+		it('notenum: !enumerable', function ()
+		{
+			var target = {};
+
+			prop.value(target, 'f', 17);
+			prop.value(target, 'field', 17, 'notenum');
+
+			eq(desc(target, 'f'), {
+				value: 17,
+
+				enumerable: false,
+				writable: false,
+				configurable: false
+			})
+
+			eq(desc(target, 'field'), {
+				value: 17,
+
+				enumerable: false,
+				writable: false,
+				configurable: false
+			})
+		})
+
+		it('write, writable: writable', function ()
+		{
+			var target = {};
+
+			prop.value(target, 'f', 17, 'write');
+			prop.value(target, 'field', 17, 'writable');
+
+			eq(desc(target, 'f'), {
+				value: 17,
+
+				enumerable: false,
+				writable: true,
+				configurable: false
+			})
+
+			eq(desc(target, 'field'), {
+				value: 17,
+
+				enumerable: false,
+				writable: true,
+				configurable: false
+			})
+		})
+
+		it('readonly: !writable', function ()
+		{
+			var target = {};
+
+			prop.value(target, 'f', 17);
+			prop.value(target, 'field', 17, 'readonly');
+
+			eq(desc(target, 'f'), {
+				value: 17,
+
+				enumerable: false,
+				writable: false,
+				configurable: false
+			})
+
+			eq(desc(target, 'field'), {
+				value: 17,
+
+				enumerable: false,
+				writable: false,
+				configurable: false
+			})
+		})
+
+		it('config, configurable: configurable', function ()
+		{
+			var target = {};
+
+			prop.value(target, 'f', 17, 'config');
+			prop.value(target, 'field', 17, 'configurable');
+
+			eq(desc(target, 'f'), {
+				value: 17,
+
+				enumerable: false,
+				writable: false,
+				configurable: true
+			})
+
+			eq(desc(target, 'field'), {
+				value: 17,
+
+				enumerable: false,
+				writable: false,
+				configurable: true
+			})
+		})
+
+		it('later flags overwrite previous', function ()
+		{
+			var target = {};
+
+			prop.value(target, 'enum', 17, 'notenum', 'enum');
+			prop.value(target, 'writable', 17, 'readonly', 'write');
+
+			eq(desc(target, 'enum'), {
+				value: 17,
+
+				enumerable: true,
+				writable: false,
+				configurable: false
+			})
+
+			eq(desc(target, 'writable'), {
+				value: 17,
+
+				enumerable: false,
+				writable: true,
+				configurable: false
+			})
 		})
 	})
-
-	it('notenum: not enumerable, but modifiable', function ()
-	{
-		var target = {};
-
-		prop.notenum(target, 'field', 17);
-
-		eq(target.field, 17);
-		eq(keys(target), []);
-
-		target.field = 11;
-		eq(target.field, 11);
-		eq(keys(target), []);
-
-		eq(desc(target, 'field'), {
-			value: 11,
-
-			writable: true,
-			enumerable: false,
-			configurable: true
-		});
-
-		delete target.field;
-		eq('field' in target, false);
-	})
-
 })

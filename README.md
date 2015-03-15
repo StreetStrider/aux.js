@@ -70,8 +70,7 @@ prop: create object properties (various of shortcuts)
 prop.get — getter
 prop.set — setter
 prop.getset — getter/setter
-prop.readonly — readonly, non-enumerable property
-prop.notenum — non-enumerable, but modifiable property
+prop.value — build property by flags
 
 object: object itertools, like for arrays
 object.each — for each on objects
