@@ -65,6 +65,7 @@ fn.unary — limits function to first argument
 fn.get — creates getters
 fn.invoke - creates method invokers
 fn.method — late binding, binds key with function value to its object
+fn.compose — creates left-to-right composion of functions
 
 prop: create object properties (various of shortcuts)
 prop.get — getter
