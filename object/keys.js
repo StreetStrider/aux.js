@@ -1,5 +1,6 @@
 
 
+
 var
 	slice = Array.prototype.slice
 
@@ -10,7 +11,7 @@ var
 
 	uniq = require('../array/uniq');
 
-module.exports = function keys (object /* flag, flag */)
+module.exports = function keys (object /* flag, flag, ... */) /* @flags */
 {
 	var
 		flags = slice.call(arguments, 1),

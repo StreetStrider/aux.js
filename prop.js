@@ -25,7 +25,7 @@ prop.getset = function getset (object, key, getter, setter)
 	def(object, key, { get: getter, set: setter });
 }
 
-prop.value = function value (object, key, value /*, flag, flag, ... */)
+prop.value = function value (object, key, value /*, flag, flag, ... */) /* @flags */
 {
 	var
 		flags = slice.call(arguments, 3),
