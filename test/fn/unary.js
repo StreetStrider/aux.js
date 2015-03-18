@@ -22,4 +22,11 @@ describe('fn/unary', function ()
 		eq([ 0 ], unars(0))
 		eq([ undefined ], unars())
 	})
+
+	it('fn name = unaried', function ()
+	{
+		var fn = unary(args);
+
+		eq('unaryied', fn.name)
+	})
 })

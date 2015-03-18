@@ -12,6 +12,8 @@ describe('fn/get', function ()
 	{
 		var getter = get('x');
 
+		eq('getter', getter.name)
+
 		eq(1, getter({ x: 1 }))
 	})
 

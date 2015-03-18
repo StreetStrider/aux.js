@@ -15,6 +15,8 @@ describe('fn/invoke', function ()
 			invoker = invoke('x'),
 			flag = {};
 
+		eq('invoker', invoker.name)
+
 		eq(flag, invoker({ x: function () { return flag; } }))
 	})
 

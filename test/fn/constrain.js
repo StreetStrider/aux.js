@@ -103,7 +103,7 @@ describe('fn/constrain', function ()
 		eq(un(undefined, 5), constrain(un, c, 5)())
 	})
 
-	it ('works on collections', function ()
+	it('works on collections', function ()
 	{
 		var
 			log = console.log,
@@ -115,7 +115,7 @@ describe('fn/constrain', function ()
 		}
 
 		eq(
-			['1', 'NaN', 'NaN', 'NaN', 'NaN'],
+			[ '1', 'NaN', 'NaN', 'NaN', 'NaN' ],
 			[ '1', '2', '3', '4', '5' ]
 			.map(parseInt)
 			.map(nan)
@@ -141,6 +141,13 @@ describe('fn/constrain', function ()
 			[ '1a', '2b', '3c', '4d', '5e' ]
 			.map(parseIntHex)
 		)
+	})
+
+	it('fn name = constrained', function ()
+	{
+		var fn = constrain(function foo (v) { return v; });
+
+		eq('constrained', fn.name)
 	})
 
 })

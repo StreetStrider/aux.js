@@ -41,4 +41,11 @@ describe('fn/negate', function ()
 		eq(inv_pos(0), nonpos(0))
 	})
 
+	it('fn name = negated', function ()
+	{
+		var fn = negate(function foo (v) { return v; });
+
+		eq('negated', fn.name)
+	})
+
 })

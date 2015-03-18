@@ -16,6 +16,7 @@ describe('fn/compose', function ()
 	{
 		var id = compose();
 		eq('function', typeof id)
+		eq('identity', id.name)
 
 		var x1 = {}, x2 = id(x1);
 		eq(x1, x2)

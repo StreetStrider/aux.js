@@ -1,7 +1,7 @@
 
 
 
-module.exports = function indentity (v)
+module.exports = function identity (v)
 {
 	return v;
 }

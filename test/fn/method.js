@@ -58,4 +58,11 @@ describe('fn/method', function ()
 		eqd(A, late(A))
 	})
 
+	it('fn name = methodic', function ()
+	{
+		var fn = method({}, 'key');
+
+		eq('methodic', fn.name)
+	})
+
 })

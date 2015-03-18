@@ -42,4 +42,11 @@ describe('fn/partial', function ()
 		eq(summarize(1, 2, 3), p2(3))
 	})
 
+	it('fn name = partialled', function ()
+	{
+		var fn = partial(summarize);
+
+		eq('partialled', fn.name)
+	})
+
 });
