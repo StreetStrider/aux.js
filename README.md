@@ -8,7 +8,7 @@ and defer to native stuff in any other case.
 ### partials
 ```javascript
 // partial — for partial application (like bind, but without `this`)
-['a', 'b', 'c'].forEach(partial(console.log, 'value:'));
+[ 'a', 'b', 'c' ].forEach(partial(console.log, 'value:'));
 // ↳ log iterations with prefix
 
 // constrain — like partial, but allow placeholders in arguments
@@ -18,45 +18,54 @@ and defer to native stuff in any other case.
 ```
 
 ### arrays
+For most of the arrays methods we defer to native, like forEach, filter-map-reduce, some-every. This group of functions implement only essential things.
 ```javascript
 // concatenate arrays and non-arrays
 // better way to cast sequence of values to array
 // works with `arguments` object as well
-cat(1, [2, 3], 4);
-// ↳ [1, 2, 3, 4]
+cat(1, [ 2, 3 ], 4);
+// ↳ [ 1, 2, 3, 4 ]
 
 // remove duplicates in array, preserves order
-uniq([4, 5, 5, 7]);
-// ↳ [4, 5, 7]
+uniq([ 4, 5, 5, 7 ]);
+// ↳ [ 4, 5, 7 ]
 ```
 
 ### objects
+Supplies analogues of Array's filter-map for Object. Adds other stuff, like keys.
 ```javascript
-map({x:2, y: 3, z: 4}, constrain(Math.pow, _, 2));
+map({ x: 2, y: 3, z: 4 }, constrain(Math.pow, _, 2));
 // ↳ { x: 4, y: 9, z: 16 }
 
-filter({yes: true, no: 0, ye: 1, nah: ''}, Boolean);
+filter({ yes: true, no: 0, ye: 1, nah: '' }, Boolean);
 // ↳ { yes: true, ye: 1 }
+
+keys({});
+// ↳ ... here's all keys, not only own enumerable
+
+keys({}, 'own');
+// ↳ ... only own keys
+
+keys({}, 'enum');
+// ↳ ... only enumerable keys
+
+keys({}, 'own', 'enum');
+// ↳ ... works like Object.keys, please use it instead
 ```
 
 ### expr
 ```javascript
 // very terse lambdas
-[1, 2, 3, 4, 5].map(expr('2 * @'));
+[ 1, 2, 3, 4, 5 ].map(expr('2 * @'));
 // ↳ [ 2, 4, 6, 8, 10 ]
 
-[3, 7, 5].reduce(expr('@1 + @2'));
+[ 3, 7, 5 ].reduce(expr('@1 + @2'));
 // ↳ 15
 ```
-Suprisingly, works well:
-[perf](http://jsperf.com/new-function-vs-function-expression)
+Suprisingly, [works well](http://jsperf.com/new-function-vs-function-expression).
 
-## what in
+## what's also in
 ```
-expr: compact functional expression (lambdas) constructor
-expr — for creating expressions
-expr.bool, expr.not, expr.nothing, expr.always, expr.never — some predefined exprs
-
 functools: works with other functions
 fn.partial — creates function partials
 fn.constrain — partial with placeholders (sparse partials)
@@ -73,6 +82,9 @@ prop.set — setter
 prop.getset — getter/setter
 prop.value — build property by flags
 
+inst: instantiating objects for dual constructors
+inst — create object with constructor prototype
+
 object: object itertools, like for arrays
 object.each — for each on objects
 object.filter — filter on objects
@@ -85,8 +97,9 @@ array.cat — concatenate arrays
 array.uniq — simple, order-safe uniq
 array.add, array.remove — {in,ex}clude elements of array as it was set
 
-inst: instantiating objects for dual constructors
-inst — create object with constructor prototype
+expr: compact functional expression (lambdas) constructor
+expr — for creating expressions
+expr.bool, expr.not, expr.nothing, expr.always, expr.never — some predefined exprs
 
 top-level primitives:
 noop — function, does nothing, return undefined
