@@ -90,7 +90,7 @@ describe('expr', function ()
 		var
 			x = {},
 			X = Boolean(x),
-			bool  = expr('!! @')
+			bool  = expr('!! @'),
 			bool1 = expr('!! @1');
 
 		eq(X, bool(x))
@@ -102,8 +102,8 @@ describe('expr', function ()
 	{
 		var
 			x = {},
-			X = (function (v) { return ! v; })(x)
-			not  = expr('! @')
+			X = (function (v) { return ! v; })(x),
+			not  = expr('! @'),
 			not1 = expr('! @1');
 
 		eq(X, not(x))

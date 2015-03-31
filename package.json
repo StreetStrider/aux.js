@@ -1,6 +1,6 @@
 {
 	"name": "aux.js",
-	"version": "2.5.0",
+	"version": "2.5.1",
 	"description": "idiomatic JavaScript",
 
 	"author": "StreetStrider <teamfortresslife@gmail.com>",
@@ -12,7 +12,7 @@
 
 	"scripts":
 	{
-		"test": "mocha --recursive test/"
+		"test": "mocha --check-leaks --recursive test/"
 	},
 
 	"devDependencies":
