@@ -69,12 +69,13 @@ Suprisingly, [works well](http://jsperf.com/new-function-vs-function-expression)
 functools: works with other functions
 fn.partial — creates function partials
 fn.constrain — partial with placeholders (sparse partials)
-fn.negate — inverts function boolean result value
 fn.unary — limits function to first argument
 fn.get — creates getters
 fn.invoke - creates method invokers
 fn.method — late binding, binds key with function value to its object
 fn.compose — creates left-to-right composion of functions
+fn.negate — inverts function boolean result value
+fn.conj, fn.disj — conjunction and disjuction of functions
 
 prop: create object properties (various of shortcuts)
 prop.get — getter
