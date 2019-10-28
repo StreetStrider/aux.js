@@ -1,0 +1,19 @@
+{
+  "name": "aux.js",
+  "version": "3.0.0-pre",
+  "description": "JavaScript phrases",
+
+  "author": "Strider <strange.transistor@gmail.com>",
+  "license": "ISC",
+
+  "homepage":            "https://github.com/StreetStrider/aux.js",
+  "repository": { "url": "https://github.com/StreetStrider/aux.js.git", "type": "git" },
+  "bugs":       { "url": "https://github.com/StreetStrider/aux.js/issues" },
+
+  "scripts":
+  {
+  },
+  "devDependencies":
+  {
+  }
+}
