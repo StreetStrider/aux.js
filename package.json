@@ -12,8 +12,14 @@
 
   "scripts":
   {
+    "st": "eslint ."
   },
   "devDependencies":
   {
+    "eslint":
+      "6",
+
+    "js-outlander":
+      "StrangeTransistor/js-outlander#2.5.0"
   }
 }
