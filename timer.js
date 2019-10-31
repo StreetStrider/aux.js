@@ -8,7 +8,7 @@ export function timeout (timeout, fn)
 		timeout = 0
 	}
 
-	var disposer = function disposer ()
+	var ds = function disposer ()
 	{
 		if (! fn) { return }
 
@@ -20,13 +20,13 @@ export function timeout (timeout, fn)
 
 		fn = null
 		timeout = null
-		disposer = null
+		ds = null
 	}
 
 	var t1 = setTimeout(fn, timeout)
-	var t2 = setTimeout(disposer, timeout)
+	var t2 = setTimeout(ds, timeout)
 
-	return disposer
+	return ds
 }
 
 export function interval (interval, fn)
