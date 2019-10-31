@@ -13,7 +13,8 @@
   "scripts":
   {
       "st": "eslint .",
-    "test": "npm run st"
+    "unit": "mocha -r esm -r console-ultimate -r test/global test/*.test.js",
+    "test": "npm run st && npm run unit"
   },
 
   "dependencies":
@@ -24,10 +25,24 @@
 
   "devDependencies":
   {
+    "esm":
+      "3",
+
+    "console-ultimate":
+      "3",
+
+
     "eslint":
       "6",
 
     "js-outlander":
-      "StrangeTransistor/js-outlander#2.5.0"
+      "StrangeTransistor/js-outlander#2.5.0",
+
+
+    "mocha":
+      "6",
+
+    "chai":
+      "4"
   }
 }
