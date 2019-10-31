@@ -1,3 +1,4 @@
+/* eslint complexity: [ 2, 6 ] */
 
 import explicit from './explicit'
 
