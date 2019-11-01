@@ -12,10 +12,16 @@
 
   "scripts":
   {
-     "test": "npm run st && npm run unit",
+     "test": "npm run st && npm run unit && npm run cover",
 
        "st": "eslint .",
-     "unit": "npm run dev && cd release/dev; mocha -r console-ultimate -r test/global test/*.test.js",
+
+     "unit": "npm run dev && npm run mocha",
+
+    "mocha": "cd release/dev && npm run mocha/1",
+    "mocha/1": "mocha -r console-ultimate -r test/global test/*.test.js",
+
+    "cover": "cd release/dev && nyc --reporter=lcov --all npm run mocha/1",
 
       "dev": "gulp --once",
     "final": "gulp --final"
@@ -56,6 +62,9 @@
       "6",
 
     "chai":
-      "4"
+      "4",
+
+    "nyc":
+      "14"
   }
 }
