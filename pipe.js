@@ -1,4 +1,4 @@
 
-import { pipe } from 'rambda/src/pipe'
+import { pipe } from 'rambda'
 
 export default pipe

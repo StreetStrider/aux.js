@@ -1,4 +1,4 @@
 
-import { curry } from 'rambda/src/curry'
+import { curry } from 'rambda'
 
 export default curry

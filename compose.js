@@ -1,4 +1,4 @@
 
-import { compose } from 'rambda/src/compose'
+import { compose } from 'rambda'
 
 export default compose
