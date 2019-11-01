@@ -12,9 +12,13 @@
 
   "scripts":
   {
-      "st": "eslint .",
-    "unit": "mocha -r esm -r console-ultimate -r test/global test/*.test.js",
-    "test": "npm run st && npm run unit"
+     "test": "npm run st && npm run unit",
+
+       "st": "eslint .",
+     "unit": "npm run dev && cd release/dev; mocha -r console-ultimate -r test/global test/*.test.js",
+
+      "dev": "gulp --once",
+    "final": "gulp --final"
   },
 
   "dependencies":
@@ -30,6 +34,15 @@
 
     "console-ultimate":
       "3",
+
+    "gulp":
+      "4",
+
+    "rollup":
+      "1",
+
+    "metalpipe":
+      "~/Projects/metalpipe",
 
 
     "eslint":
