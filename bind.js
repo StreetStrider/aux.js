@@ -1,6 +1,6 @@
 
 
-export default function bind (fn, input)
+export default function bind (fn, ...args)
 {
-	return () => fn(input)
+	return () => fn(...args)
 }

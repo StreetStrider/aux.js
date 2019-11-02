@@ -83,13 +83,13 @@ describe('explicit', () =>
 
 describe('bind', () =>
 {
-	function sum (a, b = 1)
-	{
-		return (a + b)
-	}
-
 	it('works', () =>
 	{
+		function sum (a, b = 1)
+		{
+			return (a + b)
+		}
+
 		expect(bind).a('function')
 
 		var ten = bind(sum, 9)
@@ -98,5 +98,22 @@ describe('bind', () =>
 		expect(ten(void 0)).eq(10)
 		expect(ten(1)).eq(10)
 		expect(ten(10)).eq(10)
+	})
+
+	it('works multi', () =>
+	{
+		function sum (a, b, c = 1)
+		{
+			return (a + b + c)
+		}
+
+		var ten = bind(sum, 8, 1)
+
+		expect(ten()).eq(10)
+		expect(ten(void 0)).eq(10)
+		expect(ten(1)).eq(10)
+		expect(ten(10)).eq(10)
+		expect(ten(10, void 0)).eq(10)
+		expect(ten(10, 10)).eq(10)
 	})
 })
