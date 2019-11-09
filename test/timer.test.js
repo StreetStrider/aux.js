@@ -8,6 +8,15 @@ describe('timer', () =>
 {
 	describe('timeout', () =>
 	{
+		it('works', (done) =>
+		{
+			timeout((...args) =>
+			{
+				expect(args.length).eq(0)
+				done()
+			})
+		})
+
 		it('works(0)', (done) =>
 		{
 			timeout(() => done())
@@ -38,7 +47,18 @@ describe('timer', () =>
 
 	describe('interval', () =>
 	{
-		it('works(0)', (done) =>
+		it('works', (done) =>
+		{
+			var ds = interval(0, (...args) =>
+			{
+				expect(args.length).eq(0)
+
+				ds()
+				done()
+			})
+		})
+
+		it('works', (done) =>
 		{
 			var c = 0
 			var rs = ''
