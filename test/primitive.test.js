@@ -7,6 +7,7 @@ import constant from '../constant'
 
 import explicit from '../explicit'
 import bind     from '../bind'
+import asap     from '../asap'
 
 
 describe('noop', () =>
@@ -78,6 +79,18 @@ describe('explicit', () =>
 		expect(explicit(1)).eq(true)
 		expect(explicit(false)).eq(true)
 		expect(explicit(null)).eq(true)
+	})
+})
+
+describe('asap', () =>
+{
+	it('works', (done) =>
+	{
+		asap((...args) =>
+		{
+			expect(args.length).eq(0)
+			done()
+		})
 	})
 })
 
