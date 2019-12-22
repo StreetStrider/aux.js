@@ -1,6 +1,8 @@
 
+import asap from './asap'
+import bind from './bind'
 
 export default function defer (fn)
 {
-	return setTimeout(fn, 0)
+	return bind(asap, fn)
 }

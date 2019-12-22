@@ -1,24 +1,11 @@
 
-import defer     from '../defer'
-import deferred  from '../deferred'
-
+import defer from '../defer'
 
 describe('defer', () =>
 {
 	it('works', (done) =>
 	{
-		defer(() =>
-		{
-			done()
-		})
-	})
-})
-
-describe('deferred', () =>
-{
-	it('works', (done) =>
-	{
-		var d = deferred(() => done())
+		var d = defer(() => done())
 
 		d()
 	})

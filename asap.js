@@ -2,5 +2,5 @@
 
 export default function asap (fn)
 {
-	setTimeout(fn, 0)
+	Promise.resolve().then(() => fn())
 }
