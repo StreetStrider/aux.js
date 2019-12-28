@@ -10,6 +10,11 @@
   "repository": { "url": "https://github.com/StreetStrider/aux.js.git", "type": "git" },
   "bugs":       { "url": "https://github.com/StreetStrider/aux.js/issues" },
 
+  "engines":
+  {
+    "node": ">= 6"
+  },
+
   "scripts":
   {
      "test": "npm run st && npm run unit && npm run cover",
