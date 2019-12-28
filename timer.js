@@ -29,6 +29,7 @@ export function timeout (timeout, fn)
 	return ds
 }
 
+
 export function interval (interval, fn)
 {
 	var t = setInterval(fn, interval)
