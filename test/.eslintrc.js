@@ -15,5 +15,6 @@ module.exports =
 	{
 		'no-unused-expressions': 0,
 		'max-statements': 0,
+		'node/no-unpublished-import': 0,
 	}
 }
