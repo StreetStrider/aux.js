@@ -29,7 +29,7 @@
     "cover": "cd release/dev && nyc -r text -r lcov --all npm run mocha/1",
 
       "dev": "gulp --once",
-    "final": "gulp --final"
+    "release": "gulp --final --to npm"
   },
 
   "dependencies":
