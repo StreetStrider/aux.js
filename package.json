@@ -57,19 +57,19 @@
       "6",
 
     "js-outlander":
-      "StrangeTransistor/js-outlander#2.6.0",
+      "StrangeTransistor/js-outlander#2.6.1",
 
     "eslint-plugin-node":
       "11",
 
 
     "mocha":
-      "6",
+      "7",
 
     "chai":
       "4",
 
     "nyc":
-      "14"
+      "15"
   }
 }
