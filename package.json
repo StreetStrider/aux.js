@@ -10,6 +10,8 @@
   "repository": { "url": "https://github.com/StreetStrider/aux.js.git", "type": "git" },
   "bugs":       { "url": "https://github.com/StreetStrider/aux.js/issues" },
 
+  "sideEffects": false,
+
   "engines":
   {
     "node": ">= 6"
