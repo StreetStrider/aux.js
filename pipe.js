@@ -1,4 +1,4 @@
 
-import { pipe } from 'rambda'
+import pipe from '@arrows/composition/pipe'
 
 export default pipe

@@ -36,8 +36,8 @@
 
   "dependencies":
   {
-    "rambda":
-      "4"
+    "@arrows/composition":
+      "1"
   },
 
   "devDependencies":

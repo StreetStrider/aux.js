@@ -1,4 +1,4 @@
 
-import { curry } from 'rambda'
+import curry from '@arrows/composition/curry'
 
 export default curry
