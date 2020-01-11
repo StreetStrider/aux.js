@@ -7,6 +7,7 @@ import constant from '../constant'
 
 import explicit from '../explicit'
 import bind     from '../bind'
+import unary    from '../unary'
 import asap     from '../asap'
 
 
@@ -128,5 +129,25 @@ describe('bind', () =>
 		expect(ten(10)).eq(10)
 		expect(ten(10, void 0)).eq(10)
 		expect(ten(10, 10)).eq(10)
+	})
+})
+
+describe('unary', () =>
+{
+	it('works', () =>
+	{
+		function pair (a, b)
+		{
+			expect(arguments.length).eq(1)
+
+			return [ a, b ]
+		}
+
+		var u = unary(pair)
+
+		expect(u(1, 2)).deep.eq([ 1, void 0 ])
+		expect(u(2, 3, 4)).deep.eq([ 2, void 0 ])
+		expect(u(5)).deep.eq([ 5, void 0 ])
+		expect(u()).deep.eq([ void 0, void 0 ])
 	})
 })
