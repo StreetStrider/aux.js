@@ -8,6 +8,7 @@ import constant from '../constant'
 import explicit from '../explicit'
 import bind     from '../bind'
 import unary    from '../unary'
+import negate   from '../negate'
 import asap     from '../asap'
 
 
@@ -149,5 +150,34 @@ describe('unary', () =>
 		expect(u(2, 3, 4)).deep.eq([ 2, void 0 ])
 		expect(u(5)).deep.eq([ 5, void 0 ])
 		expect(u()).deep.eq([ void 0, void 0 ])
+	})
+})
+
+describe('negate', () =>
+{
+	it('works', () =>
+	{
+		function yes ()
+		{
+			return true
+		}
+
+		function bool (value)
+		{
+			return Boolean(value)
+		}
+
+		var yes_no  = negate(yes)
+		var bool_no = negate(bool)
+
+		expect(yes_no(1)).false
+		expect(yes_no(0)).false
+		expect(yes_no(true)).false
+		expect(yes_no(false)).false
+
+		expect(bool_no(1)).false
+		expect(bool_no(0)).true
+		expect(bool_no(true)).false
+		expect(bool_no(false)).true
 	})
 })
