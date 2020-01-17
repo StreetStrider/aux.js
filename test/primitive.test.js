@@ -1,5 +1,6 @@
 
 import noop     from '../noop'
+import nothing  from '../nothing'
 import always   from '../always'
 import never    from '../never'
 import same     from '../same'
@@ -18,6 +19,15 @@ describe('noop', () =>
 	{
 		expect(noop).a('function')
 		expect(noop()).eq(void 0)
+	})
+})
+
+describe('nothing', () =>
+{
+	it('works', () =>
+	{
+		expect(nothing).a('function')
+		expect(nothing()).eq(null)
 	})
 })
 
