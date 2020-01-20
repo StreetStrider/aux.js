@@ -115,6 +115,17 @@ describe('between', () =>
 		expect(between(NaN, 3, 5)).NaN
 		expect(between(NaN, -3, 5)).NaN
 		expect(between(NaN, -5, -3)).NaN
+
+		expect(() =>
+		{
+			between(1, 3, 2)
+		})
+		.throw(TypeError)
+		expect(() =>
+		{
+			between(-1, -2, -3)
+		})
+		.throw(TypeError)
 	})
 })
 
