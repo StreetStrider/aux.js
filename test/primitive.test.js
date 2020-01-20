@@ -7,6 +7,7 @@ import same     from '../same'
 import constant from '../constant'
 
 import explicit from '../explicit'
+import between  from '../between'
 import bind     from '../bind'
 import unary    from '../unary'
 import negate   from '../negate'
@@ -91,6 +92,20 @@ describe('explicit', () =>
 		expect(explicit(1)).eq(true)
 		expect(explicit(false)).eq(true)
 		expect(explicit(null)).eq(true)
+	})
+})
+
+describe('between', () =>
+{
+	it('works', () =>
+	{
+		expect(between(1, 3, 5)).eq(3)
+		expect(between(7, 3, 5)).eq(5)
+		expect(between(4, 3, 5)).eq(4)
+
+		expect(between(void 0, 3, 5)).eq(void 0)
+
+		expect(between(NaN, 3, 5)).NaN
 	})
 })
 
