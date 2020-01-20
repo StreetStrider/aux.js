@@ -102,10 +102,19 @@ describe('between', () =>
 		expect(between(1, 3, 5)).eq(3)
 		expect(between(7, 3, 5)).eq(5)
 		expect(between(4, 3, 5)).eq(4)
+		expect(between(4, -5, -3)).eq(-3)
+		expect(between(-7, -5, -3)).eq(-5)
+
+		expect(between(2, 3, 3)).eq(3)
+		expect(between(4, 3, 3)).eq(3)
 
 		expect(between(void 0, 3, 5)).eq(void 0)
+		expect(between(void 0, -3, 5)).eq(void 0)
+		expect(between(void 0, -5, -3)).eq(void 0)
 
 		expect(between(NaN, 3, 5)).NaN
+		expect(between(NaN, -3, 5)).NaN
+		expect(between(NaN, -5, -3)).NaN
 	})
 })
 
