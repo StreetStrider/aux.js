@@ -20,17 +20,10 @@
   "scripts":
   {
      "test": "npm run st && npm run unit && npm run cover",
-
        "st": "eslint .",
+     "unit": "mocha -r esm -r console-ultimate -r test/global test/*.test.js",
+    "cover": "c8 -r text -r lcov npm run unit",
 
-     "unit": "npm run dev && npm run mocha",
-
-    "mocha": "cd release/dev && npm run mocha/1",
-    "mocha/1": "mocha -r console-ultimate -r test/global test/*.test.js",
-
-    "cover": "cd release/dev && nyc -r text -r lcov --all npm run mocha/1",
-
-      "dev": "gulp --once",
     "release": "gulp --final --to npm"
   },
 
@@ -42,6 +35,10 @@
 
   "devDependencies":
   {
+    "esm":
+      "*",
+
+
     "console-ultimate":
       "3",
 
@@ -71,7 +68,7 @@
     "chai":
       "4",
 
-    "nyc":
-      "15"
+    "c8":
+      "*"
   }
 }
