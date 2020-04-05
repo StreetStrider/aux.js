@@ -36,7 +36,7 @@
   "devDependencies":
   {
     "esm":
-      "*",
+      "3",
 
 
     "console-ultimate":
@@ -69,6 +69,6 @@
       "4",
 
     "c8":
-      "*"
+      "7"
   }
 }
