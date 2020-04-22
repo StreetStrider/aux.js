@@ -7,6 +7,7 @@ import same     from '../same'
 import constant from '../constant'
 
 import explicit from '../explicit'
+import not      from '../not'
 import between  from '../between'
 import bind     from '../bind'
 import unary    from '../unary'
@@ -92,6 +93,18 @@ describe('explicit', () =>
 		expect(explicit(1)).eq(true)
 		expect(explicit(false)).eq(true)
 		expect(explicit(null)).eq(true)
+	})
+})
+
+describe('not', () =>
+{
+	it('works', () =>
+	{
+		expect(not(false)).eq(true)
+		expect(not(true)).eq(false)
+
+		expect(not(1)).eq(false)
+		expect(not(null)).eq(true)
 	})
 })
 
