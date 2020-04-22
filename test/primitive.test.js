@@ -8,6 +8,8 @@ import constant from '../constant'
 
 import explicit from '../explicit'
 import not      from '../not'
+import div      from '../div'
+import divmod   from '../divmod'
 import between  from '../between'
 import bind     from '../bind'
 import unary    from '../unary'
@@ -105,6 +107,24 @@ describe('not', () =>
 
 		expect(not(1)).eq(false)
 		expect(not(null)).eq(true)
+	})
+})
+
+describe('div & divmod', () =>
+{
+	it('works', () =>
+	{
+		expect(div(5, 2)).eq(2)
+		expect(div(4, 2)).eq(2)
+		expect(div(-11, 5)).eq(-3)
+		expect(div(0, 10)).eq(0)
+		expect(div(5, -3)).eq(-2)
+
+		expect(divmod(5, 2)).deep.eq([ 2, 1 ])
+		expect(divmod(4, 2)).deep.eq([ 2, 0 ])
+		expect(divmod(-11, 5)).deep.eq([ -3, -1 ])
+		expect(divmod(0, 10)).deep.eq([ 0, 0 ])
+		expect(divmod(5, -3)).deep.eq([ -2, 2 ])
 	})
 })
 
