@@ -15,8 +15,8 @@ export function timeout (timeout, fn)
 		clearTimeout(t1)
 		clearTimeout(t2)
 
-		t1  = null
-		t2  = null
+		t1 = null
+		t2 = null
 
 		fn = null
 		timeout = null
