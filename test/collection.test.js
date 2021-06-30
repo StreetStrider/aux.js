@@ -6,14 +6,11 @@ describe('collection', () =>
 {
 	it('add', () =>
 	{
-		var r = []
-		var coll = collection(value => r.push(value))
+		var coll = collection()
 
 		expect(coll.add(1)).eq(1)
 		expect(coll.add(2)).eq(2)
 		expect(coll.add(3)).eq(3)
-
-		expect(r).deep.eq([ 1, 2, 3 ])
 
 		expect(coll.has(1)).eq(true)
 		expect(coll.has(2)).eq(true)
@@ -23,8 +20,7 @@ describe('collection', () =>
 
 	it('strict add', () =>
 	{
-		var r = []
-		var coll = collection(value => r.push(value))
+		var coll = collection()
 
 		coll.add(1)
 		coll.add(2)

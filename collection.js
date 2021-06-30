@@ -1,8 +1,7 @@
 
-import noop from './noop'
 
 
-export default function collection (fn_add = noop)
+export default function collection ()
 {
 	var col = new Set
 
@@ -11,8 +10,6 @@ export default function collection (fn_add = noop)
 		if (has(value)) throw new ReferenceError
 
 		col.add(value)
-
-		fn_add(value)
 
 		return value
 	}
