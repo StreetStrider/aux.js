@@ -51,5 +51,17 @@ export default function registry (fn_init = noop)
 		}
 	}
 
-	return { get, set, has, each, remove }
+	function keys ()
+	{
+		return Object.keys(reg)
+	}
+
+	return {
+		get,
+		set,
+		has,
+		each,
+		keys,
+		remove,
+	}
 }

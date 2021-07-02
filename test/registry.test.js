@@ -13,6 +13,8 @@ describe('registry', () =>
 		expect(reg.has('bar')).eq(false)
 		expect(reg.has('qux')).eq(false)
 
+		expect(reg.keys()).deep.eq([])
+
 		expect(reg.get('foo')).eq('FOO:1')
 		expect(reg.get('bar')).eq('BAR:2')
 		expect(reg.get('qux')).eq('QUX:3')
@@ -20,6 +22,8 @@ describe('registry', () =>
 		expect(reg.has('foo')).eq(true)
 		expect(reg.has('bar')).eq(true)
 		expect(reg.has('qux')).eq(true)
+
+		expect(reg.keys().sort()).deep.eq([ 'foo', 'bar', 'qux' ].sort())
 
 		expect(reg.get('foo')).eq('FOO:1')
 		expect(reg.get('bar')).eq('BAR:2')
@@ -31,6 +35,8 @@ describe('registry', () =>
 		expect(reg.has('bar')).eq(true)
 		expect(reg.has('qux')).eq(true)
 
+		expect(reg.keys().sort()).deep.eq([ 'bar', 'qux' ].sort())
+
 		expect(reg.get('foo')).eq('FOO:4')
 		expect(reg.get('bar')).eq('BAR:2')
 		expect(reg.get('qux')).eq('QUX:3')
@@ -38,6 +44,8 @@ describe('registry', () =>
 		expect(reg.has('foo')).eq(true)
 		expect(reg.has('bar')).eq(true)
 		expect(reg.has('qux')).eq(true)
+
+		expect(reg.keys().sort()).deep.eq([ 'foo', 'bar', 'qux' ].sort())
 	})
 
 	it('strict set', () =>
