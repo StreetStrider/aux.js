@@ -22,7 +22,7 @@
      "test": "npm run st && npm run unit && npm run cover",
        "st": "eslint .",
      "unit": "mocha -r esm -r console-ultimate -r test/global test/*.test.js",
-    "cover": "c8 -r text -r lcov --all -n '*.js' -x 'gulpfile.js' -x '*eslint*' npm run unit",
+    "cover": "c8 npm run unit",
 
     "release": "gulp --final --to npm"
   },

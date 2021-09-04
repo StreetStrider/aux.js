@@ -1,0 +1,13 @@
+{
+  "reporter": [ "text", "lcov" ],
+
+  "all": true,
+  "include": "**/*.js",
+  "exclude":
+  [
+    "coverage",
+    "release",
+    "gulpfile.js",
+    ".eslintrc.js"
+  ]
+}
