@@ -48,6 +48,19 @@ describe('registry', () =>
 		expect(reg.keys().sort()).deep.eq([ 'foo', 'bar', 'qux' ].sort())
 	})
 
+	it('strict get', () =>
+	{
+		var reg = registry()
+
+		expect(() => reg.get('foo')).throw(ReferenceError)
+		expect(() => reg.get('bar')).throw(ReferenceError)
+
+		reg.set('foo', 'FOO:1')
+
+		expect(reg.get('foo')).eq('FOO:1')
+		expect(() => reg.get('bar')).throw(ReferenceError)
+	})
+
 	it('strict set', () =>
 	{
 		var reg = registry(key => key.toUpperCase())

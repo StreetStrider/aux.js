@@ -1,10 +1,9 @@
 // maybe / when?
 
-import noop from './noop'
 import dict from './dict'
 
 
-export default function registry (fn_init = noop)
+export default function registry (fn_maker = not_found)
 {
 	var reg = dict()
 
@@ -15,7 +14,7 @@ export default function registry (fn_init = noop)
 			return reg[key]
 		}
 
-		return (reg[key] = fn_init(key))
+		return (reg[key] = fn_maker(key))
 	}
 
 	function set (key, value)
@@ -65,4 +64,10 @@ export default function registry (fn_init = noop)
 		keys,
 		remove,
 	}
+}
+
+
+function not_found ()
+{
+	throw new ReferenceError
 }
