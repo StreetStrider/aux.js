@@ -5,6 +5,7 @@
   "include": "**/*.js",
   "exclude":
   [
+    "test",
     "coverage",
     "release",
     "gulpfile.js",

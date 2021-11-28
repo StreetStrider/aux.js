@@ -73,4 +73,46 @@ describe('collection', () =>
 
 		expect(r).deep.eq([ 1, 2, 4 ])
 	})
+
+	it('is_empty', () =>
+	{
+		var coll = collection()
+
+		expect(coll.is_empty()).eq(true)
+
+		coll.add(1)
+		expect(coll.is_empty()).eq(false)
+
+		coll.add(2)
+		expect(coll.is_empty()).eq(false)
+
+		coll.remove(2)
+		expect(coll.is_empty()).eq(false)
+
+		coll.remove(1)
+		expect(coll.is_empty()).eq(true)
+	})
+
+	it('clear', () =>
+	{
+		var coll = collection()
+
+		expect(coll.is_empty()).eq(true)
+		coll.clear()
+		expect(coll.is_empty()).eq(true)
+
+		coll.add(1)
+
+		expect(coll.is_empty()).eq(false)
+		coll.clear()
+		expect(coll.is_empty()).eq(true)
+
+		coll.add(1)
+		coll.add(2)
+		coll.add(3)
+
+		expect(coll.is_empty()).eq(false)
+		coll.clear()
+		expect(coll.is_empty()).eq(true)
+	})
 })

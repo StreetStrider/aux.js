@@ -119,4 +119,46 @@ describe('registry', () =>
 
 		expect(r).deep.eq({ FOO: 'FOO', BAR: 'BAR' })
 	})
+
+	it('is_empty', () =>
+	{
+		var reg = registry()
+
+		expect(reg.is_empty()).eq(true)
+
+		reg.set('foo', 'foo')
+		expect(reg.is_empty()).eq(false)
+
+		reg.set('bar', 'bar')
+		expect(reg.is_empty()).eq(false)
+
+		reg.remove('bar')
+		expect(reg.is_empty()).eq(false)
+
+		reg.remove('foo')
+		expect(reg.is_empty()).eq(true)
+	})
+
+	it('clear', () =>
+	{
+		var reg = registry()
+
+		expect(reg.is_empty()).eq(true)
+		reg.clear()
+		expect(reg.is_empty()).eq(true)
+
+		reg.set('foo')
+
+		expect(reg.is_empty()).eq(false)
+		reg.clear()
+		expect(reg.is_empty()).eq(true)
+
+		reg.set('foo', 'foo')
+		reg.set('bar', 'bar')
+		reg.set('qux', 'qux')
+
+		expect(reg.is_empty()).eq(false)
+		reg.clear()
+		expect(reg.is_empty()).eq(true)
+	})
 })

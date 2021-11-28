@@ -24,20 +24,6 @@ export default function registry (fn_maker = not_found)
 		return (reg[key] = value)
 	}
 
-	function remove (key)
-	{
-		if (! has(key)) throw new ReferenceError
-
-		try
-		{
-			return reg[key]
-		}
-		finally
-		{
-			delete reg[key]
-		}
-	}
-
 	function has (key)
 	{
 		return (key in reg)
@@ -56,13 +42,39 @@ export default function registry (fn_maker = not_found)
 		return Object.keys(reg)
 	}
 
+	function is_empty ()
+	{
+		return (! keys().length)
+	}
+
+	function remove (key)
+	{
+		if (! has(key)) throw new ReferenceError
+
+		try
+		{
+			return reg[key]
+		}
+		finally
+		{
+			delete reg[key]
+		}
+	}
+
+	function clear ()
+	{
+		reg = dict()
+	}
+
 	return {
 		get,
 		set,
 		has,
 		each,
 		keys,
+		is_empty,
 		remove,
+		clear,
 	}
 }
 
