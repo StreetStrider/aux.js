@@ -21,8 +21,9 @@
 
   "scripts":
   {
-     "test": "npm run st && npm run unit && npm run cover",
+     "test": "npm run st && npm run ts && npm run unit && npm run cover",
        "st": "eslint .",
+       "ts": "tsc",
      "unit": "mocha -r esm -r console-ultimate -r test/global test/*.test.js",
     "cover": "c8 npm run unit",
 
@@ -62,6 +63,10 @@
 
     "eslint-plugin-node":
       "11",
+
+
+    "typescript":
+      "4.5.2",
 
 
     "mocha":
