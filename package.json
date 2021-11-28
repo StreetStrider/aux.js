@@ -1,4 +1,6 @@
 {
+  "private": true,
+
   "name": "aux.js",
   "version": "3.5.0",
   "description": "JavaScript phrases",
