@@ -1,6 +1,7 @@
 
 import compose from '../compose'
 import pipe from '../pipe'
+import { over as pipe_over } from '../pipe'
 import curry from '../curry'
 
 
@@ -35,6 +36,15 @@ describe('pipe', () =>
 		var c = pipe(inc, double)
 
 		expect(c(4)).eq(10)
+	})
+
+	it('over', () =>
+	{
+		expect(pipe).a('function')
+
+		var v = pipe_over(5, inc, double)
+
+		expect(v).eq(12)
 	})
 })
 
