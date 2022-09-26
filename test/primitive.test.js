@@ -12,6 +12,7 @@ import div      from '../div'
 import divmod   from '../divmod'
 import between  from '../between'
 import bind     from '../bind'
+import partial  from '../partial'
 import unary    from '../unary'
 import negate   from '../negate'
 import asap     from '../asap'
@@ -208,6 +209,43 @@ describe('bind', () =>
 		expect(ten(10)).eq(10)
 		expect(ten(10, void 0)).eq(10)
 		expect(ten(10, 10)).eq(10)
+	})
+})
+
+describe('partial', () =>
+{
+	it('works', () =>
+	{
+		function sum (a, b = 1)
+		{
+			return (a + b)
+		}
+
+		expect(partial).a('function')
+
+		var ten = partial(sum, 9)
+
+		expect(ten()).eq(10)
+		expect(ten(void 0)).eq(10)
+		expect(ten(1)).eq(10)
+		expect(ten(10)).eq(19)
+	})
+
+	it('works multi', () =>
+	{
+		function sum (a, b, c = 1)
+		{
+			return (a + b + c)
+		}
+
+		var ten = partial(sum, 8, 1)
+
+		expect(ten()).eq(10)
+		expect(ten(void 0)).eq(10)
+		expect(ten(1)).eq(10)
+		expect(ten(10)).eq(19)
+		expect(ten(11, void 0)).eq(20)
+		expect(ten(12, 10)).eq(21)
 	})
 })
 
