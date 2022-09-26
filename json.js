@@ -1,7 +1,6 @@
 
 var { parse, stringify } = JSON
 
-
 export function load (payload)
 {
 	return parse(payload)

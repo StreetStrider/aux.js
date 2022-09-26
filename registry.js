@@ -2,7 +2,6 @@
 
 import dict from './dict'
 
-
 export default function registry (fn_maker = not_found)
 {
 	var $reg = dict()

@@ -1,7 +1,6 @@
 
 import noop from './noop'
 
-
 export default function Disposer (fn = noop)
 {
 	if (Disposer.is(fn))

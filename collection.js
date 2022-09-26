@@ -1,6 +1,5 @@
 
 
-
 export default function collection ()
 {
 	var $col = new Set
