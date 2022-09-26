@@ -5,6 +5,7 @@ export type T_Collection <Value = unknown> =
 	has (value: Value): boolean;
 	is_empty (): boolean;
 	each (fn: (value: Value) => void): void;
+	[Symbol.iterator]: Iterator<Value>,
 	remove (value: Value): Value;
 	clear (): void;
 }

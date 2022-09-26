@@ -74,6 +74,25 @@ describe('collection', () =>
 		expect(r).deep.eq([ 1, 2, 4 ])
 	})
 
+	it('for-of', () =>
+	{
+		var coll = collection()
+
+		coll.add(1)
+		coll.add(2)
+		coll.add(3)
+		coll.remove(3)
+		coll.add(4)
+
+		var r = []
+		for (var value of coll)
+		{
+			r.push(value)
+		}
+
+		expect(r).deep.eq([ 1, 2, 4 ])
+	})
+
 	it('is_empty', () =>
 	{
 		var coll = collection()

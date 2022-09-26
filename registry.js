@@ -5,41 +5,49 @@ import dict from './dict'
 
 export default function registry (fn_maker = not_found)
 {
-	var reg = dict()
+	var $reg = dict()
 
 	function get (key)
 	{
 		if (has(key))
 		{
-			return reg[key]
+			return $reg[key]
 		}
 
-		return (reg[key] = fn_maker(key))
+		return ($reg[key] = fn_maker(key))
 	}
 
 	function set (key, value)
 	{
 		if (has(key)) throw new ReferenceError
 
-		return (reg[key] = value)
+		return ($reg[key] = value)
 	}
 
 	function has (key)
 	{
-		return (key in reg)
+		return (key in $reg)
 	}
 
 	function each (fn)
 	{
-		for (var key in reg)
+		for (var key in $reg)
 		{
-			fn(reg[key])
+			fn($reg[key])
+		}
+	}
+
+	function * iterator ()
+	{
+		for (var key in $reg)
+		{
+			yield [ key, $reg[key] ]
 		}
 	}
 
 	function keys ()
 	{
-		return Object.keys(reg)
+		return Object.keys($reg)
 	}
 
 	function is_empty ()
@@ -53,17 +61,17 @@ export default function registry (fn_maker = not_found)
 
 		try
 		{
-			return reg[key]
+			return $reg[key]
 		}
 		finally
 		{
-			delete reg[key]
+			delete $reg[key]
 		}
 	}
 
 	function clear ()
 	{
-		reg = dict()
+		$reg = dict()
 	}
 
 	return {
@@ -71,6 +79,7 @@ export default function registry (fn_maker = not_found)
 		set,
 		has,
 		each,
+		[Symbol.iterator]: iterator,
 		keys,
 		is_empty,
 		remove,

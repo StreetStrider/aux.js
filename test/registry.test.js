@@ -120,6 +120,29 @@ describe('registry', () =>
 		expect(r).deep.eq({ FOO: 'FOO', BAR: 'BAR' })
 	})
 
+	it('for-of', () =>
+	{
+		var reg = registry()
+
+		reg.set('x', 1)
+		reg.set('y', 2)
+		reg.set('z', 3)
+
+		var r = []
+
+		for (var pair of reg)
+		{
+			r.push(pair)
+		}
+
+		expect(r).deep.eq(
+		[
+			[ 'x', 1 ],
+			[ 'y', 2 ],
+			[ 'z', 3 ],
+		])
+	})
+
 	it('is_empty', () =>
 	{
 		var reg = registry()
