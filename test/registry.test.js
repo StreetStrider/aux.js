@@ -112,12 +112,12 @@ describe('registry', () =>
 
 		var r = {}
 
-		reg.each(value =>
+		reg.each((value, key) =>
 		{
-			r[value] = value
+			r[key] = value
 		})
 
-		expect(r).deep.eq({ FOO: 'FOO', BAR: 'BAR' })
+		expect(r).deep.eq({ foo: 'FOO', bar: 'BAR' })
 	})
 
 	it('for-of', () =>

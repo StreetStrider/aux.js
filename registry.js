@@ -32,7 +32,7 @@ export default function registry (fn_maker = not_found)
 	{
 		for (var key in $reg)
 		{
-			fn($reg[key])
+			fn($reg[key], key)
 		}
 	}
 
