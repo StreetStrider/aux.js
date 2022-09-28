@@ -61,6 +61,20 @@ describe('registry', () =>
 		expect(() => reg.get('bar')).throw(ReferenceError)
 	})
 
+	it('over', () =>
+	{
+		var reg = registry()
+
+		reg.set('foo', 'FOO:1')
+		reg.set('bar', 'BAR:2')
+
+		var r = []
+		reg.over('foo',  (v, k) => r.push([ v, k ]))
+		reg.over('foo2', (v, k) => r.push([ v, k ]))
+
+		expect(r).deep.eq([[ 'FOO:1', 'foo' ]])
+	})
+
 	it('strict set', () =>
 	{
 		var reg = registry(key => key.toUpperCase())

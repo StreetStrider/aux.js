@@ -1,4 +1,3 @@
-// maybe / when?
 
 import dict from './dict'
 
@@ -21,6 +20,13 @@ export default function registry (fn_maker = not_found)
 		if (has(key)) throw new ReferenceError
 
 		return ($reg[key] = value)
+	}
+
+	function over (key, fn)
+	{
+		if (! has(key)) return
+
+		fn($reg[key], key)
 	}
 
 	function has (key)
@@ -76,6 +82,7 @@ export default function registry (fn_maker = not_found)
 	return {
 		get,
 		set,
+		over,
 		has,
 		each,
 		[Symbol.iterator]: iterator,
